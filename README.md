@@ -1,4 +1,5 @@
 # sse-stream-parser
+![CI](https://github.com/FerrowAI/sse-stream-parser/actions/workflows/ci.yml/badge.svg)
 
 Incremental Server-Sent Events parser for LLM streaming — spec-correct
 multi-line fields, comments, CRLF/LF, chunk-boundary splits, `[DONE]`
