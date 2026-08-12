@@ -1,0 +1,30 @@
+# sse-stream-parser
+
+> Incremental Server-Sent Events parser for LLM streaming responses, with correct chunk-boundary handling.
+
+sse-stream-parser is a spec-correct, incremental SSE (Server-Sent Events)
+parser built for LLM streaming (OpenAI/Anthropic-style chat completions
+over SSE). Feed it raw text chunks as they arrive over the wire — in any
+byte alignment, including split mid-line, mid-field, or mid-event — via
+`feed(chunk)`, and it returns only the SSEEvent(s) that became complete.
+It handles multi-line `data:` fields (joined per spec), `event:`/`id:`/
+`retry:` fields, `:`-prefixed comment lines, and both CRLF and LF line
+endings. It also ships the `[DONE]` sentinel-event convention used by
+OpenAI-style streams and a JSON-delta accumulator helper for reassembling
+incremental content deltas into a running string. Zero runtime
+dependencies, strict TypeScript.
+
+## API
+
+- `class SSEParser { feed(chunk: string): SSEEvent[]; flush(): SSEEvent[] }`
+- `isDoneEvent(event: SSEEvent): boolean`
+- `createDeltaAccumulator(extract: (parsed: unknown) => string | null | undefined): DeltaAccumulator`
+- Types: `SSEEvent { data, event, id?, retry? }`, `DeltaAccumulator { feed(event), text, reset() }`
+
+## Install
+
+```
+npm install sse-stream-parser
+```
+
+Part of the Ferrow open-source toolkit: https://github.com/Ruzylo-cloud/ferrow-toolkit — sponsored by https://ferrow.ai
