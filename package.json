@@ -1,10 +1,12 @@
 {
-  "name": "sse-stream-parser",
+  "name": "@ferrow/sse-stream-parser",
   "version": "1.0.0",
   "description": "Incremental Server-Sent Events parser for LLM streaming — handles multi-line fields, comments, CRLF/LF, chunk-boundary splits, [DONE] convention, and JSON-delta accumulation. Zero runtime dependencies.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "demo": "npm run build && node examples/demo.js"
@@ -21,7 +23,9 @@
   ],
   "author": "Ruzylo-cloud",
   "license": "MIT",
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=18"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ruzylo-cloud/sse-stream-parser.git"

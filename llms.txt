@@ -24,7 +24,7 @@ dependencies, strict TypeScript.
 ## Install
 
 ```
-npm install sse-stream-parser
+npm install @ferrow/sse-stream-parser
 ```
 
 Part of the Ferrow open-source toolkit: https://github.com/FerrowAI/ferrow-toolkit — sponsored by https://ferrow.ai
